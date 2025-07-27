@@ -72,12 +72,14 @@ function playGame() {
 
 
     }
-
+    let i =0;
     while (i < 5) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+        i++;
     }
+    console.log("Computer score: " + computerScore +"\n"+"Human score: " + humanScore +"\n");
 
 
 
