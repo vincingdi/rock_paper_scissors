@@ -30,33 +30,43 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+
+
     function playRound(humanChoice, computerChoice) {
         humanChoice = String(humanChoice).toLowerCase();
         computerChoice = String(computerChoice).toLowerCase();
 
         // IF they are equal print It's a draw!
-
+        const container = document.querySelector("#container");
         if (humanChoice == computerChoice) {
-            console.log("It's a draw!");
+            container.textContent = "It's a draw!";
         } else if (humanChoice == "rock" && computerChoice == "scissors"){
-            console.log("You win! Rock beats scissors.");
+            container.textContent = "You win! Rock beats scissors.";
             humanScore++;
         } else if (humanChoice == "scissors" && computerChoice == "rock") {
-            console.log("You lose! Rock beats scissors.");
+            container.textContent = "You lose! Rock beats scissors.";
             computerScore++;
         } else if (humanChoice == "paper" && computerChoice == "scissors") {
-            console.log("You lose! Scissors beats rock.");
+            container.textContent = "You lose! Scissors beats rock.";
             computerScore++;
        } else if (humanChoice == "scissors" && computerChoice == "paper") {
-            console.log("You win! Scissors beats rock.");
+            container.textContent = "You win! Scissors beats rock.";
             humanScore++
         } else if (humanChoice == "paper" && computerChoice == "rock") {
-            console.log("You win! Paper beats rock.");
+            container.textContent = "You win! Paper beats rock.";
             humanScore++;
         } else if (humanChoice == "rock" && computerChoice == "paper") {
-            console.log("You lose! Paper beats rock.");
+            container.textContent = "You lose! Paper beats rock.";
             computerScore++;
-        }     
+        }
+
+        const score = document.createElement("div"); 
+        score.textContent = "Computer score: " + computerScore +"\n"+"Human score: " + humanScore +"\n";
+        container.appendChild(score);
+
+
+        const announcement = document.createElement("div");
+        
         // ELSE IF human choice is rock and computer is scissors print You win! Rock beats Scissors.
         
         // ELSE IF human choice is scissors and computer choice is rock You Lose! Rock beats scissors.
@@ -68,7 +78,14 @@ function playGame() {
         // ELSE IF human choice is  paper and computer choice is rock. You win! Paper beats rock.
 
         // ELSE IF human choice is rock and computer choice is scissors. You lose! Paper beats rock.
-
+        if (computerScore === 5) {
+            announcement.textContent = "Computer won!"
+            container.appendChild(announcement);
+        } else if (humanScore === 5) {
+            announcement.textContent = "Human won!";
+            container.appendChild(announcement);
+            
+        }
 
     }
     // let i =0;
@@ -78,7 +95,19 @@ function playGame() {
     //     playRound(humanSelection, computerSelection);
     //     i++;
     // }
-    console.log("Computer score: " + computerScore +"\n"+"Human score: " + humanScore +"\n");
+
+    const buttons = document.querySelectorAll("button");
+
+    buttons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+            playRound(button.id, getComputerChoice());
+        });
+    });
+
+    
+
+    
 
 
 
