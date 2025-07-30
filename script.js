@@ -47,7 +47,7 @@ function playGame() {
         } else if (humanChoice == "paper" && computerChoice == "scissors") {
             console.log("You lose! Scissors beats rock.");
             computerScore++;
-        } else if (humanChoice == "scissors" && computerChoice == "paper") {
+       } else if (humanChoice == "scissors" && computerChoice == "paper") {
             console.log("You win! Scissors beats rock.");
             humanScore++
         } else if (humanChoice == "paper" && computerChoice == "rock") {
@@ -56,8 +56,7 @@ function playGame() {
         } else if (humanChoice == "rock" && computerChoice == "paper") {
             console.log("You lose! Paper beats rock.");
             computerScore++;
-        }
-        
+        }     
         // ELSE IF human choice is rock and computer is scissors print You win! Rock beats Scissors.
         
         // ELSE IF human choice is scissors and computer choice is rock You Lose! Rock beats scissors.
@@ -72,13 +71,13 @@ function playGame() {
 
 
     }
-    let i =0;
-    while (i < 5) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        i++;
-    }
+    // let i =0;
+    // while (i < 5) {
+    //     let humanSelection = getHumanChoice();
+    //     let computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection);
+    //     i++;
+    // }
     console.log("Computer score: " + computerScore +"\n"+"Human score: " + humanScore +"\n");
 
 
