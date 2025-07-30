@@ -81,10 +81,11 @@ function playGame() {
         if (computerScore === 5) {
             announcement.textContent = "Computer won!"
             container.appendChild(announcement);
+    
         } else if (humanScore === 5) {
             announcement.textContent = "Human won!";
             container.appendChild(announcement);
-            
+
         }
 
     }
